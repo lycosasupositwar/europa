@@ -11,19 +11,20 @@ client.on('message', message => {
     if (message.content === '!rolejoueur') {// si le bot lit la commande
 	
 
-if(message.member.roles.some(r=>["JOUEUR"].includes(r.name)) ) {
-	
+let roleplayer = message.guild.roles.find("name","JOUEUR");
+if(message.member.roles.has(roleplayer.id)) {
+
   message.channel.send('Bonjour ' + message.author + 'tu as déjà le rôle joueur pas besoin de le refaire');
-  
+
 } else {
 
 let role = message.guild.roles.find("name", "JOUEUR");
-let member = message.mentions.members.first();
+let member = message.guild.members.get(message.author.id);
 member.addRole(role).catch(console.error);
 
 
 message.channel.send('Bienvenu chez nous ' + message.author + ', tu peux maintenant profiter à fond du Discord');
-  
+
 }
 	
 
