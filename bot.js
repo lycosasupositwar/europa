@@ -6,20 +6,27 @@ client.on('ready', () => {
 });
 
 client.on('message', message => {
-    if (message.content === '!rolejoueur') {
-		
+	
+	
+    if (message.content === '!rolejoueur') {// si le bot lit la commande
+	
+
+if(message.member.roles.some(r=>["JOUEUR"].includes(r.name)) ) {
+	
+  message.channel.send('Bonjour ' + message.author + 'tu as déjà le rôle joueur pas besoin de le refaire');
+  
+} else {
+
 let role = message.guild.roles.find("name", "JOUEUR");
-
-// Let's pretend you mentioned the user you want to add a role to (!addrole @user Role Name):
 let member = message.mentions.members.first();
+member.addRole(role).catch(console.error);
 
-// or the person who made the command: let member = message.member;
 
-// Add the role!
-member.addRole(role).catch(console.error''console.log('role ajoutee!'););
+message.channel.send('Bienvenu chez nous ' + message.author + ', tu peux maintenant profiter à fond du Discord');
+  
+}
+	
 
-// Remove a role!
-member.removeRole(role).catch(console.error);
   	}
 	
 	
