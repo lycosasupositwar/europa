@@ -8,13 +8,17 @@ client.on('ready', () => {
 client.on('message', message => {
 	
 	
-    if (message.content === '!rolejoueur') {// si le bot lit la commande
+    if (message.content == '!rolejoueur') {// si le bot lit la commande
 	
 
 let roleplayer = message.guild.roles.find("name","JOUEUR");
 if(message.member.roles.has(roleplayer.id)) {
+	
 
+  var tableau=message.content.split(" ");
+  console.table(tableau);
   message.channel.send('Bonjour ' + message.author + 'tu as déjà le rôle joueur pas besoin de le refaire');
+  
 
 } else {
 
