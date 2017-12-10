@@ -11,7 +11,7 @@ var stmessage = message.content.substr(0, 11);
     if (stmessage === '!rolejoueur') {// si le bot lit la commande
 	
 
-let roleplayer = message.guild.roles.find("name","JOUEUR");
+let roleplayer = message.guild.roles.find("name","Rookie");
 if(message.member.roles.has(roleplayer.id)) {
 	
 
@@ -22,7 +22,7 @@ if(message.member.roles.has(roleplayer.id)) {
 
 } else {
 
-let role = message.guild.roles.find("name", "JOUEUR");
+let role = message.guild.roles.find("name", "Rookie");
 let member = message.guild.members.get(message.author.id);
 member.addRole(role).catch(console.error);
 
